@@ -45,6 +45,9 @@
   "homepage": "https://blog.mina1316.me/",
   "devDependencies": {
     "@types/react-router": "^5.1.18",
-    "@types/react-router-dom": "^5.3.3"
+    "@types/react-router-dom": "^5.3.3",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.7"
   }
 }

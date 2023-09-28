@@ -10,6 +10,10 @@ import nav from "lume/plugins/nav.ts";
 import pagefind from "lume/plugins/pagefind.ts";
 import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
+import mdx from "lume/plugins/mdx.ts";
+
+import allyEmoji from "npm:@fec/remark-a11y-emoji"
+import rehypeRemoveComments from "npm:rehype-remove-comments@5"
 
 const site = lume({
   src: "src",
@@ -17,16 +21,22 @@ const site = lume({
   dest: "_site"
 });
 
-site.use(attributes());
-site.use(base_path());
-site.use(code_highlight());
-site.use(date());
-site.use(esbuild());
-site.use(jsx_preact());
-site.use(multilanguage());
-site.use(nav());
-site.use(pagefind());
-site.use(tailwindcss());
-site.use(postcss());
+[
+  {func: attributes, opts: {}},
+  {func: base_path, opts: {}},
+  {func: code_highlight, opts: {}},
+  {func: date, opts: {}},
+  {func: esbuild, opts: {}},
+  {func: jsx_preact, opts: {}},
+  {func: mdx, opts: {
+    remarkPlugins: [allyEmoji],
+    rehypePlugins: [rehypeRemoveComments]
+  }},
+  {func: multilanguage, opts: {}},
+  {func: nav, opts: {}},
+  {func: pagefind, opts: {}},
+  {func: tailwindcss, opts: {}},
+  {func: postcss, opts: {}}, 
+].forEach(({func, opts}) => site.use(func(opts)));
 
 export default site;

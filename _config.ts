@@ -12,31 +12,35 @@ import tailwindcss from "lume/plugins/tailwindcss.ts";
 import postcss from "lume/plugins/postcss.ts";
 import mdx from "lume/plugins/mdx.ts";
 
-import allyEmoji from "npm:@fec/remark-a11y-emoji"
-import rehypeRemoveComments from "npm:rehype-remove-comments@5"
+import allyEmoji from "npm:@fec/remark-a11y-emoji";
+import rehypeRemoveComments from "npm:rehype-remove-comments@5";
 
+// === Site configuration ===
 const site = lume({
   src: "src",
   includes: "internals",
-  dest: "_site"
+  dest: "_site",
 });
 
+// === Plugins ===
 [
-  {func: attributes, opts: {}},
-  {func: base_path, opts: {}},
-  {func: code_highlight, opts: {}},
-  {func: date, opts: {}},
-  {func: esbuild, opts: {}},
-  {func: jsx_preact, opts: {}},
-  {func: mdx, opts: {
+  attributes(),
+  base_path(),
+  code_highlight(),
+  date(),
+  jsx_preact(),
+  mdx({
     remarkPlugins: [allyEmoji],
-    rehypePlugins: [rehypeRemoveComments]
-  }},
-  {func: multilanguage, opts: {}},
-  {func: nav, opts: {}},
-  {func: pagefind, opts: {}},
-  {func: tailwindcss, opts: {}},
-  {func: postcss, opts: {}}, 
-].forEach(({func, opts}) => site.use(func(opts)));
+    rehypePlugins: [rehypeRemoveComments],
+  }),
+  multilanguage({
+    defaultLanguage: "kr",
+    languages: ["kr", "en"],
+  }),
+  nav(),
+  pagefind(),
+  tailwindcss(),
+  postcss(),
+].forEach((plugin) => site.use(plugin));
 
 export default site;

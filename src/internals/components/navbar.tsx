@@ -5,6 +5,7 @@ interface NavBarProps {}
 const NavBar: FunctionalComponent<NavBarProps> = ({}) => {
   return (
     <nav>
+      <div id="search" />
       <ul>
         <li>Home</li>
         <li>About</li>

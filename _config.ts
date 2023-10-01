@@ -38,7 +38,11 @@ const site = lume({
     languages: ["kr", "en"],
   }),
   nav(),
-  pagefind(),
+  pagefind({
+    indexing: {
+      rootSelector: ".post-element",
+    },
+  }),
   tailwindcss(),
   postcss(),
 ].forEach((plugin) => site.use(plugin));

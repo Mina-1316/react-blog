@@ -17,7 +17,7 @@ const Post: FunctionalComponent<DefaultPostProps> = ({
   const breadcrumbs = nav.breadcrumb(typeof url === "string" ? url : "/");
 
   return (
-    <div>
+    <div className="post-element">
       {breadcrumbs.map((breadcrumb) => (
         <p>{breadcrumb.slug}</p>
       ))}

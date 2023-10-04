@@ -22,6 +22,9 @@ const site = lume({
   dest: "_site",
 });
 
+// Assets Configuration
+site.copyRemainingFiles();
+
 // === Plugins ===
 [
   attributes(),

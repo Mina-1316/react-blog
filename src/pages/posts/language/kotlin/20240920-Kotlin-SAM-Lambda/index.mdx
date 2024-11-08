@@ -1,0 +1,61 @@
+---
+title: 코틀린 만나기 - 코틀린의 SAM, Lambda
+writer: Mina
+tags: [PLT, Kotlin, JVM, Java, OOP, Functional]
+layout: layouts/posts.tsx
+lang: kr
+---
+
+> [코틀린 만나기 시리즈]의 두번째 글입니다.
+
+## SAM, Lambda
+프로그래밍 공부를 조금 해보신 분꼐서는, Lambda라는 용어에 대해 어느 정도 친근감(?)을 가지실 수도 있을 거라고 생각합니다.
+특히나, 람다의 경우에는 자바에서도 지원되는 기능이니 더더욱이요(많이 쓰는지는 아직 잘 모르겠습니다...).
+
+람다에 대해 간단하게 정의하자면, **이름 없이 내용만 정의한 함수**라고 이해하셔도 무방할 듯 합니다. 구글에서
+Lambda Function을 검색하실 경우, 바로 연관 검색어로 Anonymous Function이 나오니까요. 
+어째서 람다라고 불리는지에 대한 내용은 [Wikipedia-Anonymous Function](https://en.wikipedia.org/wiki/Anonymous_function#Names)
+에서 확인해 보시면 좋을 것 같습니다!
+
+람다의 가장 큰 특징 중 하나는, **함수를 변수로써 다뤄** 다른 함수의 인자값으로 전달하거나, 리스트에 저장하여 순회하는 등의
+실제 값으로써 다룰 수 있다는 것입니다(이런 특징을 JS에서는 일급 객체라고 합니다). 그러나 다들 아시다시피, 자바, 코틀린의 
+실행 환경인 JVM은 이런 규칙을 허용하지 않습니다. 그러면 어떻게 자바와 코틀린에서는 람다를 지원할 수 있는 것일까요?
+
+## SAM(Single Abstract Method), Functional Interface
+자바 8에서 람다를 지원하기 위해 등장한 개념이 바로 **SAM(Single Abstract Method)** 인터페이스입니다.
+사실 자바에서는 SAM이란 용어보다는 Functional Interface가 조금 더 친숙한 용어로 받아들여지고 있죠.
+
+Functional Interface는 **단 하나의 추상 메소드만을 가지는 인터페이스**를 의미합니다. 대표적인 예시를 하나 들어볼까요?
+```Java
+@FunctionalInterface
+interface Runnable {
+  void run();
+}
+```
+위 코드는 Java에서 제공하는 Runnable 인터페이스입니다. 이 인터페이스는 단 하나의 추상 메소드인 `run()` 메소드만을 가지고 있습니다.
+그러면 만약 이 인터페이스를 구현한다면, 프로그램 내부에서는 파라미터가 없고, 반환 값이 없는 함수를 정의할 수 있게 됩니다.
+```Java
+Runnable r = () -> System.out.println("Hello, World!");
+Runnable r2 = new Runnable() {
+  @Override
+  public void run() {
+    System.out.println("Hello, World!");
+  }
+};
+r.run();
+```
+위 코드를 보시면 아시다시피, Runnable이라는 인터페이스의 구현체는 **반드시 파라미터가 없고 반환 값이 void인 run() 메소드를 구현**해야 함을
+알 수 있습니다. 즉, 함수의 구조를 정의할 수 있게 된 것이죠.
+자바에는 또한 익명 Interface 구현체 또한 존재하는데요, 위 코드의 `r2` 변수를 선언할 때의 방식이 그것입니다.
+
+이 모든것을 종합적으로 고려해 보면, SAM, Functional Interface는 **하나의 추상 메소드를 통해 함수의 구조를 정의한 것**
+이라는 내용을 이해할 수 있습니다.
+
+> 자바에서는 기본적으로 이런 함수 구조를 정의하는 SAM 인터페이스들을 `java.util.function` 패키지 내에서 지원하고 있습니다.
+> `Runnable` 외에도, `Consumer<T>`, `Supplier<T>`, `Function<T, R>` 등 다양한 함수형 인터페이스를 제공하고 있습니다.
+> 
+> 어떤 기본 인터페이스들이 제공되는지 궁금하시다면 [Java Platform SE 8 - java.util.function](https://docs.oracle.com/javase/8/docs/api/java/util/function/package-summary.html)
+> 을 확인해 보셔도 될 거 같습니다.
+>
+> 물론 여러분께서 직접 SAM을 만드셔도 되고요!
+

@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import createMdx from "@next/mdx"
+import nextra from "nextra";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -10,8 +10,17 @@ const nextConfig: NextConfig = {
   }
 };
 
-const withMdx = createMdx({
-
+const withNextra = nextra({
+  latex: {
+    renderer: "katex",
+    options: {
+      output: "mathml"
+    }
+  },
+  search: {
+    codeblocks: true
+  },
+  contentDirBasePath: "/src/pages",
 })
 
-export default withMdx(nextConfig);
+export default withNextra(nextConfig);

@@ -1,3 +1,65 @@
+import Image from "next/image";
+import cheatsheet from "./markdown-cheatsheet.avif"
+import Latex from "../../../components/latex";
+
 # Hello!
 
 Test page
+
+
+## Image
+<Image
+  src={cheatsheet}
+  alt="Markdown Cheatsheet"
+  width="100vw"
+  height="auto"
+  />
+이미지는 Relative Path를 사용할 수 없기 때문에, JSX Image Import 문법을 사용하기 위해서는 Component를 활용해야만 합니다.
+```tsx
+<Image
+  src={cheatsheet}
+  alt="Markdown Cheatsheet"
+  width="100vw"
+  height="auto"
+/>
+```
+
+## Headings/Horizontal lines
+---
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+Heading 1 with equal signs
+==========================
+
+Heading 2 with Hyphens
+------------
+```markdown
+# Heading 1
+## Heading 2
+### Heading 3
+#### Heading 4
+##### Heading 5
+###### Heading 6
+
+Heading 1 with equal signs
+==========================
+
+Heading 2 with Hyphens
+------------
+```
+
+## Formatting
+마크다운에서 사용할 수 있는 포매팅으로, *이태릭*, **볼드**, ***볼드 이태릭***, ~~취소선~~ 등이 있습니다.
+
+Latex도 될까요?
+
+The **Pythagorean equation** is $a=\sqrt{b^2 + c^2}$ and the quadratic formula:
+
+```math
+x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}
+```

@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7b670234-9f39-45d6-bfa2-8874d22ef8ed" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/code.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/2023-12-24-kotlin-extension-function/page.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/2023-12-24-kotlin-extension-function/page.mdx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/pages/2025-04-04-testpage/page.mdx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/pages/2025-04-04-testpage/page.mdx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mdx-components.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/mdx-components.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
@@ -21,10 +23,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2vDKDuz8UXh0qRnjSKBbiLvdqhj" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -35,20 +37,36 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
+    "npm.dev.executor": "Run",
     "ts.external.directory.path": "C:\\project\\react-blog\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\project\react-blog\src" />
       <recent name="C:\project\react-blog\src\app" />
+      <recent name="C:\project\react-blog\src" />
+      <recent name="C:\project\react-blog" />
+      <recent name="C:\project\react-blog\src\app\pages\2025-04-04-testpage" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -65,7 +83,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1743674088637</updated>
-      <workItem from="1743674089996" duration="8611000" />
+      <workItem from="1743674089996" duration="18489000" />
+      <workItem from="1743776182849" duration="3485000" />
     </task>
     <servers />
   </component>

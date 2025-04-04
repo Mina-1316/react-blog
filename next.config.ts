@@ -17,10 +17,7 @@ const withNextra = nextra({
       output: "mathml"
     }
   },
-  search: {
-    codeblocks: true
-  },
-  contentDirBasePath: "/src/pages",
+  search: true,
 })
 
 export default withNextra(nextConfig);
